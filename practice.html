@@ -2,32 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>HTML Common Mistakes</title>
+  <title>HCI Lab Practice – HTML Errors</title>
   <style>
-    body { 
-      font-family: 'Verdana', sans-serif; 
-      font-size: 15px; 
-      color: #222; 
-      background-color: #f9f9f9; 
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      color: #222;
       margin: 20px;
     }
-    table { 
-      border-collapse: collapse; 
-      width: 100%; 
+    h1, h2 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
       margin-top: 20px;
     }
-    th, td { 
-      border: 1px solid #555; 
-      padding: 10px; 
-      text-align: left; 
+    caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+      caption-side: top;
+    }
+    th, td {
+      border: 1px solid #555;
+      padding: 10px;
+      text-align: left;
     }
     th {
       background-color: #e2e2e2;
     }
-    caption { 
-      caption-side: top; 
-      font-weight: bold; 
-      margin-bottom: 10px; 
+    tr:nth-child(even) td {
+      background-color: #f2f2f2;
     }
     .navigation ul {
       list-style: none;
@@ -47,132 +53,123 @@
 <body>
 
 <div class="header">
-  <h1>HTML Mistakes: Common Errors & Fixes</h1>
+  <h1>HTML Lab Practice – Common Errors & Fixes</h1>
 </div>
 
 <div class="navigation">
   <ul>
-    <li><a href="week1.html">Week One</a></li>
-    <li><a href="week2.html">Week Two</a></li>
-    <li><a href="week3.html">Week Three</a></li>
-    <li><a href="week4.html">Week Four</a></li>
-    <li><a href="errors.html" aria-current="page">Errors</a></li>
-    <li><a href="references.html">References</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="week1.html">HCI Principles</a></li>
+    <li><a href="week2.html">Interaction Models</a></li>
+    <li><a href="practice.html" aria-current="page">Lab Practice</a></li>
   </ul>
 </div>
 
 <div class="content">
-  <h2>Fixing Frequent HTML Issues</h2>
+  <h2>Part A: Identify & Correct HTML Errors</h2>
 
   <table>
-    <caption>Examples of Common Errors with Correct HTML</caption>
+    <caption>Common HTML Structure & Accessibility Mistakes</caption>
     <thead>
       <tr>
-        <th>Problem</th>
+        <th>Issue</th>
         <th>Incorrect Code</th>
-        <th>Fixed Code</th>
+        <th>Correct Code</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>Navigation missing list items</th>
+        <th>Navigation link inside <code>ul</code> without <code>li</code></th>
         <td>
-          &lt;nav&gt;<br>
-          &lt;ul&gt;<br>
-          &lt;a href="week1.html"&gt;Week1&lt;/a&gt;<br>
-          &lt;/ul&gt;<br>
-          &lt;/nav&gt;
+&lt;nav&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;a href="index.html"&gt;Home&lt;/a&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="models.html"&gt;Models&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
         </td>
         <td>
-          &lt;nav&gt;<br>
-          &lt;ul&gt;<br>
-          &lt;li&gt;&lt;a href="week1.html"&gt;Week1&lt;/a&gt;&lt;/li&gt;<br>
-          &lt;/ul&gt;<br>
-          &lt;/nav&gt;
-        </td>
-      </tr>
-
-      <tr>
-        <th>Label not connected to input</th>
-        <td>
-          &lt;label for="msg"&gt;Message&lt;/label&gt;<br>
-          &lt;textarea id="message"&gt;&lt;/textarea&gt;
-        </td>
-        <td>
-          &lt;label for="message"&gt;Message&lt;/label&gt;<br>
-          &lt;textarea id="message"&gt;&lt;/textarea&gt;
+&lt;nav aria-label="Primary navigation"&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="models.html"&gt;Models&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
         </td>
       </tr>
 
       <tr>
-        <th>Heading levels skipped</th>
+        <th>Multiple <code>aria-current="page"</code> in menu</th>
         <td>
-          &lt;h1&gt;Models&lt;/h1&gt;<br>
-          &lt;h3&gt;KLM&lt;/h3&gt;
+&lt;nav aria-label="Primary navigation"&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="practice.html" aria-current="page"&gt;Practice&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
         </td>
         <td>
-          &lt;h1&gt;Models&lt;/h1&gt;<br>
-          &lt;h2&gt;KLM&lt;/h2&gt;
-        </td>
-      </tr>
-
-      <tr>
-        <th>Image missing alt text</th>
-        <td>&lt;img src="diagram.png"&gt;</td>
-        <td>&lt;img src="diagram.png" alt="Interaction diagram"&gt;</td>
-      </tr>
-
-      <tr>
-        <th>Table without caption</th>
-        <td>
-          &lt;table&gt;<br>
-          &lt;tr&gt;&lt;td&gt;KLM&lt;/td&gt;&lt;td&gt;Time&lt;/td&gt;&lt;/tr&gt;<br>
-          &lt;/table&gt;
-        </td>
-        <td>
-          &lt;table&gt;<br>
-          &lt;caption&gt;KLM Model Comparison&lt;/caption&gt;<br>
-          &lt;thead&gt;...&lt;/thead&gt;
+&lt;nav aria-label="Primary navigation"&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;li&gt;&lt;a href="practice.html" aria-current="page"&gt;Practice&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
         </td>
       </tr>
 
       <tr>
-        <th>Multiple aria-current</th>
+        <th>Label not connected to control</th>
         <td>
-          &lt;a aria-current="page"&gt;Home&lt;/a&gt;<br>
-          &lt;a aria-current="page"&gt;Week2&lt;/a&gt;
+&lt;label for="msg"&gt;Message&lt;/label&gt;<br>
+&lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
         </td>
-        <td>&lt;a aria-current="page"&gt;Week2&lt;/a&gt;</td>
-      </tr>
-
-      <tr>
-        <th>Using div instead of semantic element</th>
-        <td>&lt;div&gt;Navigation&lt;/div&gt;</td>
-        <td>&lt;nav&gt;Navigation&lt;/nav&gt;</td>
-      </tr>
-
-      <tr>
-        <th>Vague link text</th>
-        <td>&lt;a href="week1.html"&gt;Click here&lt;/a&gt;</td>
-        <td>&lt;a href="week1.html"&gt;Week 1: Norman's Model&lt;/a&gt;</td>
-      </tr>
-
-      <tr>
-        <th>Form missing labels</th>
-        <td>&lt;input type="text"&gt;</td>
         <td>
-          &lt;label for="name"&gt;Name&lt;/label&gt;<br>
-          &lt;input type="text" id="name"&gt;
+&lt;label for="message"&gt;Message&lt;/label&gt;<br>
+&lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+        </td>
+      </tr>
+
+      <tr>
+        <th>Heading skips level</th>
+        <td>
+&lt;h1&gt;Interaction Analysis&lt;/h1&gt;<br>
+&lt;h3&gt;Norman vs GOMS&lt;/h3&gt;
+        </td>
+        <td>
+&lt;h1&gt;Interaction Analysis&lt;/h1&gt;<br>
+&lt;h2&gt;Norman vs GOMS&lt;/h2&gt;
+        </td>
+      </tr>
+
+      <tr>
+        <th>Table missing caption + headers</th>
+        <td>
+&lt;table&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Model&lt;/td&gt;&lt;td&gt;Predicts&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;KLM&lt;/td&gt;&lt;td&gt;Time&lt;/td&gt;&lt;/tr&gt;<br>
+&lt;/table&gt;
+        </td>
+        <td>
+&lt;table&gt;<br>
+&nbsp;&nbsp;&lt;caption&gt;Models and what they predict&lt;/caption&gt;<br>
+&nbsp;&nbsp;&lt;thead&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;&lt;th scope="col"&gt;Model&lt;/th&gt;&lt;th scope="col"&gt;Predicts&lt;/th&gt;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;/thead&gt;<br>
+&nbsp;&nbsp;&lt;tbody&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;&lt;th scope="row"&gt;KLM&lt;/th&gt;&lt;td&gt;Execution time&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;/tbody&gt;<br>
+&lt;/table&gt;
         </td>
       </tr>
     </tbody>
   </table>
 
-  <p><a href="../index.html">Return to Home</a></p>
+  <p><a href="index.html">Back to Home</a></p>
 </div>
 
 <footer>
-  <p>Lab Practice – Semantic HTML & Accessibility (Weeks 1–4)</p>
+  <p>Lab Practice – Semantic HTML & Accessibility (HCI)</p>
 </footer>
 
 </body>
