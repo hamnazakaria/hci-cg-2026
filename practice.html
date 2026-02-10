@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lab Practice – HTML Foundations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      margin: 20px;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+    }
+    nav a {
+      text-decoration: none;
+      color: blue;
+    }
+    nav a[aria-current="page"] {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    h1, h2 {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Lab Practice – HTML Foundations</h1>
+  <p>Student Name: HAMNA</p>
+  <p>BS Computer Science</p>
+</header>
+
+<nav aria-label="Primary navigation">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="hci_principles.html">HCI Principles</a></li>
+    <li><a href="interaction_models.html">Interaction Models</a></li>
+    <li><a href="practice.html" aria-current="page">Lab Practice</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <section>
+    <h2>Part A: Find Mistakes (Identify + Fix)</h2>
+    <p>For each item: (1) identify the issue in one sentence, (2) write the corrected HTML.</p>
+
+    <table>
+      <caption>Common HTML structure and accessibility mistakes (practice)</caption>
+      <thead>
+        <tr>
+          <th>Issue</th>
+          <th>Wrong HTML</th>
+          <th>Correct HTML</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Navigation link inside &lt;ul&gt; without &lt;li&gt;</td>
+          <td>
+&lt;nav&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="index.html"&gt;Home&lt;/a&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="models.html"&gt;Models&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
+          </td>
+          <td>
+&lt;nav aria-label="Primary navigation"&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="models.html"&gt;Models&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>More than one aria-current="page" in the same menu</td>
+          <td>
+&lt;nav aria-label="Primary navigation"&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html" aria-current="page"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="practice.html" aria-current="page"&gt;Practice&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
+          </td>
+          <td>
+&lt;nav aria-label="Primary navigation"&gt;<br>
+&nbsp;&nbsp;&lt;ul&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="practice.html" aria-current="page"&gt;Practice&lt;/a&gt;&lt;/li&gt;<br>
+&nbsp;&nbsp;&lt;/ul&gt;<br>
+&lt;/nav&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>Label not connected to control (for/id mismatch)</td>
+          <td>
+&lt;label for="msg"&gt;Message&lt;/label&gt;<br>
+&lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+          </td>
+          <td>
+&lt;label for="message"&gt;Message&lt;/label&gt;<br>
+&lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>Heading hierarchy skips a level</td>
+          <td>
+&lt;h1&gt;Interaction Analysis&lt;/h1&gt;<br>
+&lt;h3&gt;Norman vs GOMS&lt;/h3&gt;
+          </td>
+          <td>
+&lt;h1&gt;Interaction Analysis&lt;/h1&gt;<br>
+&lt;h2&gt;Norman vs GOMS&lt;/h2&gt;
+          </td>
+        </tr>
+
+        <tr>
+          <td>Comparison table missing caption + header cells</td>
+          <td>
+&lt;table&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;Model&lt;/td&gt;&lt;td&gt;Predicts&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;KLM&lt;/td&gt;&lt;td&gt;Time&lt;/td&gt;&lt;/tr&gt;<br>
+&lt;/table&gt;
+          </td>
+          <td>
+&lt;table&gt;<br>
+&nbsp;&nbsp;&lt;caption&gt;Models and what they predict&lt;/caption&gt;<br>
+&nbsp;&nbsp;&lt;thead&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th scope="col"&gt;Model&lt;/th&gt;&lt;th scope="col"&gt;Predicts&lt;/th&gt;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;/thead&gt;<br>
+&nbsp;&nbsp;&lt;tbody&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;&lt;th scope="row"&gt;KLM&lt;/th&gt;&lt;td&gt;Execution time&lt;/td&gt;&lt;/tr&gt;<br>
+&nbsp;&nbsp;&lt;/tbody&gt;<br>
+&lt;/table&gt;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Part B: True / False</h2>
+    <ul>
+      <li>Every link inside &lt;ul&gt; must be placed inside an &lt;li&gt;. → True</li>
+      <li>A page may have multiple &lt;h1&gt; headings to make text larger. → False</li>
+      <li>aria-current="page" should be used only on the active navigation link. → True</li>
+      <li>A form is accessible even if it has no &lt;label&gt; elements. → False</li>
+      <li>KLM predicts execution time for expert, error-free performance. → True</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Part C: Short Answer</h2>
+    <p><strong>Q1:</strong> Explain the difference between a semantic element (e.g., nav) and a generic element (e.g., div).<br>
+    <strong>A:</strong> Semantic elements describe their meaning and purpose for humans and machines (e.g., nav indicates navigation). Generic elements like div have no inherent meaning and are used for layout or grouping.</p>
+
+    <p><strong>Q2:</strong> Why does KLM not model high-level planning and interpretation?<br>
+    <strong>A:</strong> KLM is an execution-level model. It predicts performance time using low-level operators and does not model interpretation, learning, or feedback processing.</p>
+  </section>
+
+  <section>
+    <h2>Book Reference</h2>
+    <p>Dix, A., Finlay, J., Abowd, G. D., & Beale, R. Human–Computer Interaction.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 HCI & Computer Graphics – HAMNA</p>
+  <p><a href="index.html">Back to Home</a></p>
+</footer>
+
+</body>
+</html>
